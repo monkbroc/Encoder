@@ -21,4 +21,6 @@ D0 or A5 on the Photon as an encoder input.**
 
 Copyright (c) 2011,2013 PJRC.COM, LLC - Paul Stoffregen <paul@pjrc.com>
 
-Modifications for the Particle platform, copyright (c) 2017 Julien Vanier
+Modifications for the Particle platform, copyright (c) 2017 Julien Vanier <jvanier@gmail.com>
+
+Released under the MIT license
