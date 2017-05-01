@@ -7,10 +7,8 @@
 #include <Encoder.h>
 
 // Change these two numbers to the pins connected to your encoder.
-//   Best Performance: both pins have interrupt capability
-//   Good Performance: only the first pin has interrupt capability
-//   Low Performance:  neither pin has interrupt capability
-Encoder myEnc(5, 6);
+// Both pins must have interrupt capability
+Encoder myEnc(D1, D2);
 //   avoid using pins with LEDs attached
 
 void setup() {
