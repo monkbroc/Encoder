@@ -133,7 +133,7 @@ private:
 		uint8_t newState = state & 3;
 		if (p1val) newState |= 4;
 		if (p2val) newState |= 8;
-		state = (state >> 2);
+		state = (newState >> 2);
 		switch (newState) {
 			case 1: case 7: case 8: case 14:
 				position++;
