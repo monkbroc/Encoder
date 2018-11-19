@@ -32,9 +32,16 @@
 #include "Particle.h"
 
 #define IO_REG_TYPE                     uint32_t
-#define PIN_TO_BASEREG(pin)             (&(HAL_Pin_Map()[pin].gpio_peripheral->IDR))
-#define PIN_TO_BITMASK(pin)             (HAL_Pin_Map()[pin].gpio_pin)
-#define DIRECT_PIN_READ(base, mask)     (((*(base)) & (mask)) ? 1 : 0)
+
+#if defined(HAL_PLATFORM_NRF52840) && HAL_PLATFORM_NRF52840
+# define PIN_TO_BASEREG(pin)             (0)
+# define PIN_TO_BITMASK(pin)             (pin)
+# define DIRECT_PIN_READ(base, mask)     pinReadFast(mask)
+#else
+# define PIN_TO_BASEREG(pin)             (&(HAL_Pin_Map()[pin].gpio_peripheral->IDR))
+# define PIN_TO_BITMASK(pin)             (HAL_Pin_Map()[pin].gpio_pin)
+# define DIRECT_PIN_READ(base, mask)     (((*(base)) & (mask)) ? 1 : 0)
+#endif
 
 class Encoder
 {
